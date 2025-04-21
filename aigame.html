@@ -5,22 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guessing Game</title>
     <style>
+        .header{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            height: 120px;
+            background-color: #0047BA;
+            padding: 20px;
+            color: white;
+            line-height: 30px;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 82vh;
             margin: 0;
             text-align: center;
+            background-image: url(assets/img/cosmo5.png);
+            background-repeat: no-repeat;
+            background-position:0px 150px;
+            background-size: 650px;
         }
+
+        .image{
+            position: absolute;
+            top: 160px;
+            right: 0px;
+            width: 436px;
+        }
+
+        .image2{
+            position: absolute;
+            top: 160px;
+            right: 436px;
+            width: 455px;
+            z-index: 1;
+        }
+
         .game-container {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             width: 300px;
+            z-index: 2;
         }
         h1 {
             font-size: 24px;
@@ -41,7 +73,7 @@
         }
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color:#0047BA;
             color: white;
             font-size: 16px;
             border: none;
@@ -50,15 +82,15 @@
             margin-left: 10px;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: navy;
         }
         .reset-btn {
-            background-color: red;
+            background-color:#0047BA;
             margin-top: 20px;
             cursor: pointer;
         }
         .reset-btn:hover {
-            background-color: #e63946;
+            background-color:navy;
         }
         .back-link {
             display: block;
@@ -70,9 +102,26 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        .footer{
+            position: absolute;
+            top: 531px;
+            width: 100%;
+            height: 320px;
+            background-color: #0047BA;
+            color: white;
+        }
     </style>
 </head>
 <body>
+
+<div class="header">
+    <h1>BYU Number Guessing Game</h1>
+    <h4>BYU Sports are on the rise! Test you guesing skills to see how BYU Football and Basketball are going to do next year!</h4>
+</div>
+
+<img src="assets/img/cosmo4.png" alt="Cosmo" class="image">
+<img src="assets/img/cosmo6.png" alt="Cosmo" class="image2">
 
 <div class="game-container">
     <h1>Guess the Number!</h1>
@@ -88,6 +137,17 @@
     
     <!-- Link to take the user back to a different page (homepage in this case) -->
     <a href="achievements.html" class="back-link">Back to Homepage</a>
+</div>
+
+<div class="footer">
+    <h2>If Number of Guesses is:</h2>
+    <h4>Greater than 10:</h4>
+    <p> BYU Doesn't End with Winning Seasons in either Sport </p>
+    <h4>Less than 10 but Greater than 5:</h4>
+    <p>BYU Football Is Top 25 but BYU Basketball loses AJ Dybansta.</p>
+    <h4>Less than 5:</h4> 
+    <p>BYU Football and Basketball Win the National Championship</p>
+    
 </div>
 
 <script>
