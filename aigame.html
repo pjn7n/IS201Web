@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .input-field {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .reset-btn {
+            background-color: red;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .reset-btn:hover {
+            background-color: #e63946;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-container">
+    <h1>Guess the Number!</h1>
+    <p>I'm thinking of a number between 1 and 100. Can you guess what it is?</p>
+
+    <div class="input-field">
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess" />
+        <button onclick="checkGuess()">Guess</button>
+    </div>
+
+    <p class="message" id="message"></p>
+    <button class="reset-btn" onclick="resetGame()">Start New Game</button>
+    
+    <!-- Link to take the user back to a different page (homepage in this case) -->
+    <a href="achievements.html" class="back-link">Back to Homepage</a>
+</div>
+
+<script>
+    let targetNumber;
+    let attempts = 0;
+
+    // Start a new game
+    function startGame() {
+        targetNumber = Math.floor(Math.random() * 100) + 1;
+        attempts = 0;
+        document.getElementById('message').textContent = '';
+        document.getElementById('guessInput').value = '';
+        document.getElementById('guessInput').disabled = false;
+    }
+
+    // Check the player's guess
+    function checkGuess() {
+        const guess = parseInt(document.getElementById('guessInput').value);
+        const message = document.getElementById('message');
+        
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+            message.textContent = 'Please enter a number between 1 and 100.';
+            return;
+        }
+
+        attempts++;
+        
+        if (guess === targetNumber) {
+            message.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+            document.getElementById('guessInput').disabled = true;
+        } else if (guess < targetNumber) {
+            message.textContent = 'Too low! Try again.';
+        } else if (guess > targetNumber) {
+            message.textContent = 'Too high! Try again.';
+        }
+    }
+
+    // Reset the game
+    function resetGame() {
+        startGame();
+    }
+
+    // Initialize the game when the page loads
+    window.onload = startGame;
+</script>
+
+</body>
+</html>

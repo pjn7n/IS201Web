@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.header{
+    display: block;
+    position: relative;
+    background-color: #538aae;
+    padding: 25px;
+    color: white;
+    line-height: 10px;
+    margin: 0px;
+}
+
+.header a{
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    padding-top: 23px;
+    padding-left: 20px;
+}
+
+.header a:hover{
+    color: #d1d0cb;
+}
